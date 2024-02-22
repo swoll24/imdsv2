@@ -7,11 +7,11 @@ RUN dnf install python3 net-tools socat iproute -y
 
 WORKDIR /app
 
-COPY requirements.txt ../
+COPY requirements.txt ./
 RUN pip3 install -r /app/requirements.txt
 
-COPY run.sh ../
-COPY server.py ../
+COPY run.sh ./
+COPY server.py ./
 
 RUN chmod +x run.sh
 
