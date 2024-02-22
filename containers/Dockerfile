@@ -1,11 +1,9 @@
 #this is the enclave image
-FROM amazonlinux:2 as full_image
+FROM enclave_base
+#FROM alpine/socat
 
-# Install packages
-#
-RUN amazon-linux-extras install aws-nitro-enclaves-cli && \
-    yum install aws-nitro-enclaves-cli-devel jq util-linux \
-        unzip curl which file -y
+# Install python for running the server and net-tools for modifying network config
+RUN dnf install python3 net-tools socat iproute -y
 
 WORKDIR /app
 
