@@ -1,0 +1,5 @@
+FROM alpine
+
+RUN apk add socat
+
+CMD ["socat", "-d", "VSOCK-LISTEN:8080,reuseaddr,fork", "TCP-CONNECT:169.254.169.254:80"]
